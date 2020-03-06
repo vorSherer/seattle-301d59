@@ -2,6 +2,7 @@
 
 This assignment is designed to introduce you to some features in [ECMAScript 2015](https://www.ecma-international.org/ecma-262/6.0/), otherwise known as ES6. From this point on, you are expected to use these features.
 
+
 ## Overview: Variable declarations 
 
 - **`let`**
