@@ -27,7 +27,12 @@ div {
 @media( min-width: 960px ) {
 
   section {
-    display:table;
+    display:inline-block; 
+  }
+
+  div:nth-child(2){
+    width: 20%;
+    height: 20%;
   }
 
   div {
