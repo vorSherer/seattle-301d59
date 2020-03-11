@@ -17,11 +17,10 @@ function Neighborhood (rawDataObject) {
 // Demo Part 1: Build it all with jQuery
 // Make sure and talk through each of these steps that needs to happen
 Neighborhood.prototype.toHtml = function() {
-  let container = $(`<div></div>`).clone();
-  container.append(`<h2>${this.name}</h2><p>Part of: ${this.city}</p>`);
-  return container;
+  let template = $('#template').html();
+  return Mustache.render(template, this);
+  // $('#neighborhoods').html(rendered);
 };
-
 
 // Demo Part 2: Use jQuery to clone
 // Neighborhood.prototype.toHtml = function() {
