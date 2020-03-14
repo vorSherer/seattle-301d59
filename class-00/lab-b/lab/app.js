@@ -139,11 +139,11 @@ let message = (name) => `Hello, ${name}!`;
 console.log(message('Allie'));
 
 
-let Student = function(name, age, hometown) {
+let Student = (name, age, hometown) => ({
   this.name = name;
   this.age = age;
   this.hometown = hometown;
-};
+});
 
 let joe = new Student('Joe', 'Schmoe', 100);
 
