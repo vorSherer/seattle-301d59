@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Begin/Build the demo without this template. Build it as we refactor (Demo part 3) -->
-    <script id="neighborhood-template" type="text/x-handlebars-template">
-      <div>
-        <h2>{{name}}</h2>
-        <p>Part of: {{city}}</p>
-        <p>Current population: {{population}}</p>
-        <p>Founded on: {{founded}}</p>
-        {{{body}}}
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class="entry">
+        <h1>Name: {{name}}</h1>
+        <h2>City: {{city}}</h2>
+        <p>population: {{population}}</p>
+        <p>founded: {{founded}}</p>
+        <p>{{{body}}}</p>
       </div>
     </script>
-
+    
   </head>
   <body>
     <header>
@@ -26,31 +25,23 @@
     </header>
 
     <main>
-      <section id="neighborhoods">
-        <!-- Demo Part 1: Use jQuery to build each div totally from scratch -->
-
-        <!-- Demo Part 2: Use jQuery to clone a "template" -->
-        <div class="template">
-          <h2 class="name"></h2>
-          <p class="city"></p>
-          <p class="population"></p>
-          <p class="founded"></p>
-          <p class="body"></p>
-        </div>
-
-        <!-- Demo Part 3: Refactor that with Handlebars -->
-
-
-      </section>
+      <section id="neighborhoods"></section>
     </main>
 
     <footer>
       <span>&copy; 2018 Fake Data Limited</span>
     </footer>
 
+    <!-- jQuery library -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+
+    <!-- handlebars library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.2.0/handlebars.min.js"></script>
+
+    <!-- first js file -->
     <script src="scripts/dataSet.js"></script>
+
+    <!-- second js file  -->
     <script src="scripts/neighborhood.js"></script>
   </body>
 </html>
