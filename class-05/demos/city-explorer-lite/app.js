@@ -1,38 +1,32 @@
 'use strict';
+// goal: render the weather data from the json file to the page
 
-// {
-//   "time": 1567792089082,
-//   "summary": "Foggy in the morning."
-// },
-const weatherStuff = [];
+// get the data using ajax
+$.ajax('./city-weather-data.json', {method:'GET', datatype:'JSON'})
+  .then(weatherData => {
+    let weatherArray = weatherData.data;
+    weatherArray.forEach(day => {
+      new RainMaker(day).render();
+    })
+  })
 
-function Weather(obj) {
+let weather = [];
+// run it through a constructor function
+function RainMaker(obj){
   this.time = new Date(obj.time);
-  this.forecast = obj.summary;
+  this.description = obj.summary;
 
-  weatherStuff.push(this);
+  weather.push(this);
 }
 
-Weather.prototype.render = function () {
-  let source = $('#weather-results-template').html();
-  let template = Handlebars.compile(source);
-  return template(this);
-};
+RainMaker.prototype.render = function(){
+  let bananas = $('#weather-results-template').html();
+  let apples = Handlebars.compile(bananas);
 
-const ajaxSettings = {
-  method: 'get',
-  dataType: 'json'
-};
+  var html = apples(this);
 
-$.ajax('city-weather-data.json', ajaxSettings)
-  .then(weather => {
-    weather.data.forEach(day => {
-      $('#weather-container').append(new Weather(day).render());
-    });
-  });
+  $('#weather-container').append(html);
+}
 
 
-
-// render using handlebars
-// append to the page
-
+// render it using Handlebars
