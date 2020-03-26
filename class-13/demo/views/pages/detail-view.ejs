@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>to-do</title>
+  </head>
+  <body>
+    <header>
+      <%- include('../layout/header.ejs') %>
+    </header>
+    <main>
+      <section class="task-view container">
+        <ul id="task-list">
+          <li class="task-item" data-id="<%= task.id %>">
+            <h4>Task: <%= task.title %></h4>
+            <p>Desciption: <%= task.description %></p>
+            <p>Contact person: <%= task.contact %></p>
+            <p>Completion status: <%= task.status %></p>
+            <p>Category: <%= task.category %></p>
+            <p>Complete this task by <%= task.due %></p>
+          </li>
+        </ul>
+
+        <form action="<%=`/update/${task.id}?_method=PUT` %>" method="post">
+        
+
+          <input type="text" name='title' value='<%- task.title %>' placeholder="Task Name">
+          <textarea name="description" placeholder="description of task" value="<%= task.description %>"></textarea>
+          <input type='text' name='contact' value="<%-task.contact %>">
+          <input type='text' name='status' value="<%- task.status %>" placeholder="Completion Status">
+          <button type="submit">Update this Task</button>
+        
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
